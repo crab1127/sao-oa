@@ -43,15 +43,5 @@
 </script>
 
 <style>
-  .card {
-    margin-top: .2rem;
-    background: #fff;
-  }
-  .card-header {
-    border-bottom: 1px solid #ddd;
-    padding: .2rem;
-  }
-  .card-body .flex-col {
-    padding: .3rem 0;
-  }
+  
 </style>

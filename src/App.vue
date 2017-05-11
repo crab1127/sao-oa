@@ -11,13 +11,13 @@
       <router-view></router-view>
     </keep-alive>
     <yd-tabbar slot="tabbar" v-show="isShow">
-      <yd-tabbar-item title="概括" link="/">
-        <yd-icon name="home" slot="icon" size="0.54rem"></yd-icon>
+      <yd-tabbar-item title="概括" link="/" :active="routeName == 'Index'">
+        <yd-icon name="star" slot="icon" size="0.54rem"></yd-icon>
       </yd-tabbar-item>
-      <yd-tabbar-item title="明细" link="/list">
-        <yd-icon name="shopcart" slot="icon" size="0.54rem"></yd-icon>
+      <yd-tabbar-item title="明细" link="/list" :active="routeName == 'List'" >
+        <yd-icon name="type" slot="icon" size="0.54rem"></yd-icon>
       </yd-tabbar-item>
-      <yd-tabbar-item title="我的" link="/home">
+      <yd-tabbar-item title="我的" link="/home" :active="routeName == 'Home'">
         <yd-icon name="ucenter-outline" slot="icon" size="0.54rem"></yd-icon>
       </yd-tabbar-item>
     </yd-tabbar>
@@ -30,11 +30,16 @@
     data() {
       return {
         title: '导航',
-        isShow: true
+        isShow: true,
+        routeName: ''
       }
+    },
+    mounted () {
+      this.routeName = this.$route.name
     },
     watch: {
       '$route'(route) {
+        this.routeName = route.name
         if (['Index', 'List', 'Home'].indexOf(route.name) === -1) {
           this.isShow = false
         } else {
@@ -84,5 +89,16 @@
   }
   .g-scrollview:after {
    height: 0; 
+  }
+  .card {
+    margin-top: .2rem;
+    background: #fff;
+  }
+  .card-header {
+    border-bottom: 1px solid #eee;
+    padding: .2rem;
+  }
+  .card-body .flex-col {
+    padding: .3rem 0;
   }
 </style>

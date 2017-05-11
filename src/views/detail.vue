@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <div class="card">
+  <main style="min-height: 100%; background:#fff;">
+    <div class="card" style="margin-top:0; border-bottom: 1px solid #ddd;">
       <yd-flexbox class="card-header">
         <yd-flexbox-item class="text-left">设备{{ id }}</yd-flexbox-item>
       </yd-flexbox>
@@ -113,7 +113,4 @@
 </script>
 
 <style scoped>
-  body {
-    background: #fff
-  }
 </style>
