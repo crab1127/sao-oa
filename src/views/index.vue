@@ -52,7 +52,7 @@
         </yd-flexbox-item>
       </yd-flexbox>
     </div>
-    <div style="margin:0 .4rem">
+    <div style="margin:0 .4rem" class="area-3">
       <charts
         :loading="chartLoading"
         :titles="titles"
@@ -105,9 +105,12 @@
             id: 7
           }
         ],
-        chartData: [],
+        chartData: {
+          xAxis: [],
+          series: []
+        },
         chartParams: {
-          dateType: 1,
+          dateType: 2,
           type: 1
         }
       }
@@ -128,9 +131,21 @@
         fetchIndexChart(this.chartParams)
           .then(res => {
             this.chartLoading = false
-            console.log(res.body.data)
+            const data = res.body.data
+
+            if (data && data.length) {
+              this.chartData.xAxis = data.map(item => item.typeDate)
+              this.chartData.series = data.map(item => item.typeCount)
+            } else {
+               this.chartData.xAxis = null
+               this.chartData.series = null
+            }
           })
-          .catch(err => this.chartLoading = false)
+          .catch(err => {
+            this.chartLoading = false
+            this.chartData.xAxis = null
+            this.chartData.series = null
+          })
       },
       changeType(val) {
         this.chartParams.type = val
@@ -177,6 +192,16 @@
   .bottom-line{
     border-bottom: 1px solid #ccc;
   }
-  
+  div.area-3 .m-flexbox{
+    border: 1px solid #59d6ff;
+  }
+  div.area-3 .flexbox-item {
+    border-left: 1px solid #59d6ff;
+    color: #59d6ff;
+  }
+  div.area-3 .flexbox-item.active {
+    color: #fff;
+    background: #59d6ff
+  }
 </style>
 

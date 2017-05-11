@@ -12,13 +12,7 @@
       </yd-flexbox>
     </div>
     <div>
-      <charts 
-        :loading="chartLoading"
-        :titles="titls"
-        :chart-data="chartData"
-        @change-type="changeType"
-        @change-date-type="changeDateType"
-      />
+      <charts :loading="chartLoading" :titles="titls" :chart-data="chartData" @change-type="changeType" @change-date-type="changeDateType" />
     </div>
   </main>
 </template>
@@ -29,15 +23,13 @@
     fetchDeviceDetailChart
   } from '../api'
   import charts from '../components/charts'
-
   export default {
     name: 'index',
     data() {
       return {
         id: this.$route.params.id,
         detail: [],
-        titls: [
-          {
+        titls: [{
             id: 1,
             name: '4R照片'
           },
@@ -58,10 +50,13 @@
             name: 'A4照片'
           }
         ],
-        chartData: [],
+        chartData: {
+          xAxis: [],
+          series: []
+        },
         chartParams: {
           terminalID: this.$route.params.id,
-          dateType: 1,
+          dateType: 2,
           type: 1
         },
         chartLoading: true
@@ -70,13 +65,14 @@
     activated() {
       this.id = this.$route.params.id
       this.chartParams.terminalID = this.$route.params.id
-
       this.load()
       this.loadChart()
     },
     methods: {
       load() {
-        fetchDeviceDetail({id: this.id})
+        fetchDeviceDetail({
+            id: this.id
+          })
           .then(res => {
             this.detail = res.data.data
           })
@@ -85,11 +81,20 @@
         this.chartLoading = true
         fetchDeviceDetailChart(this.chartParams)
           .then(res => {
-            console.log(res.body.data)
             this.chartLoading = false
+            const data = res.body.data
+            if (data && data.length) {
+              this.chartData.xAxis = data.map(item => item.itemName)
+              this.chartData.series = data.map(item => item.itemCount)
+            } else {
+              this.chartData.xAxis = null
+              this.chartData.series = null
+            }
           })
           .catch(err => {
             this.chartLoading = false
+            this.chartData.xAxis = null
+            this.chartData.series = null
           })
       },
       changeType(val) {
@@ -106,8 +111,9 @@
     }
   }
 </script>
+
 <style scoped>
-  body { 
+  body {
     background: #fff
   }
 </style>
