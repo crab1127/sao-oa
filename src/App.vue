@@ -33,6 +33,15 @@
         isShow: true
       }
     },
+    watch: {
+      '$route'(route) {
+        if (['Index', 'List', 'Home'].indexOf(route.name) === -1) {
+          this.isShow = false
+        } else {
+          this.isShow = true
+        }
+      }
+    },
     methods: {
       back() {
         this.$router.go(-1)
@@ -66,5 +75,14 @@
   }
   .split {
     margin-top: 0.35rem;
+  }
+  .green {
+    color:#6ACA6B
+  }
+  .c-999{
+    color:#999
+  }
+  .g-scrollview:after {
+   height: 0; 
   }
 </style>

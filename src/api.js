@@ -3,12 +3,12 @@ import { API } from './config'
 
 // 首页
 export const fetchIndex = params => Vue.http.get(API.index, { params })
-export const fetchIndexChart = params => Vue.http.get(API.indexChart, { params })
+export const fetchIndexChart = params => Vue.http.get(`${API.indexChart}/${params.type}`, { params })
 
 // 明细页
 export const fetchDevice = params => Vue.http.get(API.deviceStatistics, { params })
-export const fetchDeviceDetail = params => Vue.http.get(`${API.deviceStatistics}/${params.id}`, { params })
-export const fetchDeviceDetailChart = params => Vue.http.get(`${API.deviceStatistics}/${params.id}/chart`, { params })
+export const fetchDeviceDetail = params => Vue.http.get(`${API.deviceStatistics}/${params.id}`)
+export const fetchDeviceDetailChart = params => Vue.http.get(`${API.deviceStatistics}/${params.terminalID}/${params.type}/${params.dateType}`, )
 
 // 我的中心
 export const fetchPerson = params => Vue.http.get(API.person, { params })

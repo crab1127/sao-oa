@@ -38,7 +38,11 @@
     name: 'index',
     data() {
       return {
-        detail: {}
+        detail: {
+          nickName: '周某某',
+          withdrawAmt: '200',
+          enWithdrawAmt: '321'
+        }
       }
     },
     mounted() {
@@ -46,8 +50,9 @@
     },
     methods: {
       load() {
-        fetchPerson()
+        fetchPerson({openId: 1,})
           .then(res => {
+            console.log(res)
             this.detail = res.data.data
           })
       }

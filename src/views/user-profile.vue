@@ -10,18 +10,18 @@
         <div slot="left">联系人：周某某</div>
       </yd-cell-item>
       <yd-cell-item>
-        <div slot="left">联系电话：121312</div>
+        <div slot="left">联系电话：18679633371</div>
       </yd-cell-item>
       <yd-cell-item>
-        <div slot="left">地点：121312</div>
+        <div slot="left">地点：广州市天河区</div>
       </yd-cell-item>
       <yd-cell-item>
-        <div slot="left">详细地址：121312</div>
+        <div slot="left">详细地址：广州市天河区河广路187号</div>
       </yd-cell-item>
     </yd-cell-group>
     <yd-cell-group>
       <yd-cell-item>
-        <div slot="left">设备数量：2</div>
+        <div slot="left">设备数量：3</div>
       </yd-cell-item>
     </yd-cell-group>
   </main>
@@ -39,7 +39,7 @@
       }
     },
     mounted() {
-      this.load()
+      // this.load()
     },
     methods: {
       load() {
