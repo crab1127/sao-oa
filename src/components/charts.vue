@@ -24,8 +24,6 @@
 </template>
 
 <script>
-  // import 'vue-swipe/dist/vue-swipe.css'
-  // import { Swipe, SwipeItem } from 'mint-ui'
   import {
     swiper,
     swiperSlide

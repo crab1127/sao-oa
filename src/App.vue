@@ -17,9 +17,9 @@
       <yd-tabbar-item title="明细" link="/list" :active="routeName == 'List'" >
         <yd-icon name="type" slot="icon" size="0.54rem"></yd-icon>
       </yd-tabbar-item>
-      <yd-tabbar-item title="我的" link="/home" :active="routeName == 'Home'">
+      <!--<yd-tabbar-item title="我的" link="/home" :active="routeName == 'Home'">
         <yd-icon name="ucenter-outline" slot="icon" size="0.54rem"></yd-icon>
-      </yd-tabbar-item>
+      </yd-tabbar-item>-->
     </yd-tabbar>
   </yd-layout>
 </template>
