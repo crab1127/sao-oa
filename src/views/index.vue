@@ -174,7 +174,7 @@
     font-size: .5rem
   }
   .area-2 {
-    padding: .3rem .3rem 0; 
+    padding: .4rem .3rem .1rem; 
   }
   .area-2 .flexbox-item{
     border-left: 1px solid #ddd;

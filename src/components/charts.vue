@@ -110,6 +110,9 @@
 
 <style scoped>
   .echarts {
+    position: relative;
+    top: -20px;
+    z-index: 0;
     width: 100%;
     height: 250px;
     display: flex;
@@ -138,6 +141,8 @@
     right: 0;
   }
   .m-flexbox {
+    position: relative;
+    z-index: 2;
     margin: 0 .5rem;
     border: 1px solid #157EFB;
     border-radius: 5px;

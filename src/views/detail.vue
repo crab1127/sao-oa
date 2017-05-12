@@ -1,6 +1,6 @@
 <template>
   <main style="min-height: 100%; background:#fff;">
-    <div class="card" style="margin-top:0; border-bottom: 1px solid #ddd;">
+    <div class="card" style="margin-top:0; border-bottom: 1px solid #ddd;margin-bottom:.3rem">
       <yd-flexbox class="card-header">
         <yd-flexbox-item class="text-left">设备{{ id }}</yd-flexbox-item>
       </yd-flexbox>
@@ -11,7 +11,7 @@
         </yd-flexbox-item>
       </yd-flexbox>
     </div>
-    <div>
+    <div class="detail-chart">
       <charts :loading="chartLoading" :titles="titls" :chart-data="chartData" @change-type="changeType" @change-date-type="changeDateType" />
     </div>
   </main>
@@ -112,5 +112,8 @@
   }
 </script>
 
-<style scoped>
+<style>
+  div.detail-chart .my-swipe{
+    margin: .5rem 0 .4rem;
+  }
 </style>
