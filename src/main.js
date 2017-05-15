@@ -10,6 +10,13 @@ import router from './router'
 
 Vue.use(VueResource)
 Vue.http.options.emulateJSON = true
+Vue.http.interceptors.push(function(request, next) {
+  try {
+    request.params.openid = openid
+  } catch (e) {}
+  next()
+})
+
 
 Vue.use(YDUI)
 Vue.config.productionTip = false

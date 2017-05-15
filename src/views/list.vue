@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main ref="loadmore">
     <div class="card" v-for="item in list">
       <yd-flexbox class="card-header">
         <yd-flexbox-item class="text-left">设备{{ item.termimalID }}</yd-flexbox-item>
@@ -12,6 +12,7 @@
         </yd-flexbox-item>
       </yd-flexbox>
     </div>
+    <div v-if="loading" style="padding: 10px; text-ailgn: center;"> 加载中...</div>
   </main>
 </template>
 
@@ -23,20 +24,47 @@
     name: 'index',
     data() {
       return {
-        list: []
+        list: [],
+        page: 1,
+        total: null,
+        loading: true
       }
     },
     mounted() {
       this.load()
+      document.querySelector('#scrollView').addEventListener('scroll', el => {
+        this.loadMore()
+      })
     },
     methods: {
       load() {
-        fetchDevice()
+        this.loading = true
+        fetchDevice({page: this.page})
           .then(res => {
             if (res.body.data.items && res.body.data.items.length) {
-              this.list = res.body.data.items
+              if (this.list.length) {
+                this.list = [...this.list, ...res.body.data.items]
+              } else {
+                this.list = res.body.data.items
+              }
+              
+              this.page++
+              this.total = res.body.data.total
+              this.loading = false
             }
           })
+          .catch(err => {
+            this.loading = false
+          })
+      },
+      loadMore() {
+        const $el = document.querySelector('#scrollView')
+        console.log($el.scrollHeight, $el.clientHeight, $el.scrollTop)
+        if (!this.loading && $el.scrollHeight <= $el.clientHeight + $el.scrollTop + 10) {
+          if (this.list && this.list.length < this.total ) {
+            this.load()
+          }
+        }
       }
     }
   }
