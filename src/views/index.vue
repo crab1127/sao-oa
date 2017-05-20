@@ -13,6 +13,7 @@
         <em>{{ detail.totalAmt }}元</em>
         <small>金额</small>
       </yd-flexbox-item>
+      <div class="today">今日</div>
     </yd-flexbox>
     <div class="area-2">
       <yd-flexbox class="bottom-line">
@@ -43,7 +44,7 @@
           <small>取消打印</small>
         </yd-flexbox-item>
         <yd-flexbox-item class="flex-col">
-          <em class="f-24">0</em>
+          <em class="f-24">{{ detail.refundAmt }}</em>
           <small>退款金额</small>
         </yd-flexbox-item>
         <yd-flexbox-item class="flex-col">
@@ -164,7 +165,14 @@
 
 <style>
   .area-1{
+    position: relative;
     background: #59d6ff
+  }
+  .today {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #333;
   }
   .area-1 .flexbox-item {
     padding: .3rem 0;

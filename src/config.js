@@ -1,6 +1,6 @@
 // 接口
-export const API_ROOT = 'http://mpapi.redseawetoo.com/rwy-service'
-  // export const API_ROOT = 'http://192.168.120.236:18081/rwy-service'
+// export const API_ROOT = 'http://mpapi.redseawetoo.com/rwy-service'
+export const API_ROOT = apiRoot || 'http://192.168.120.236:18081/rwy-service'
 export const API = {
   // 首页
   index: API_ROOT + '/statistic/summary',

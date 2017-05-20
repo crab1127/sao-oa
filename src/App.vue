@@ -1,12 +1,12 @@
 <template>
   <yd-layout id="app">
-    <yd-navbar slot="navbar" :title="title">
+    <!--<yd-navbar slot="navbar" :title="title">
       <div slot="left">
         <a href="javascript:;" @click="back">
           <yd-navbar-back-icon></yd-navbar-back-icon>
         </a>
       </div>
-    </yd-navbar>
+    </yd-navbar>-->
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -36,6 +36,8 @@
     },
     mounted () {
       this.routeName = this.$route.name
+      let deviveWidth = document.documentElement.clientWidth
+      document.documentElement.style.fontSize = `${deviveWidth / 7.5}px`
     },
     watch: {
       '$route'(route) {
