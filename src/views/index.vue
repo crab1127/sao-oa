@@ -41,7 +41,7 @@
         </yd-flexbox-item>
         <yd-flexbox-item class="flex-col">
           <em class="f-24">{{ detail.cancePrintNum }}</em>
-          <small>取消打印</small>
+          <small>未成功</small>
         </yd-flexbox-item>
         <yd-flexbox-item class="flex-col">
           <em class="f-24">{{ detail.refundAmt }}</em>
@@ -49,7 +49,7 @@
         </yd-flexbox-item>
         <yd-flexbox-item class="flex-col">
           <em class="f-24">{{ detail.troubleDeviceNum }}</em>
-          <small>设备故障</small>
+          <small>终端失联</small>
         </yd-flexbox-item>
       </yd-flexbox>
     </div>
