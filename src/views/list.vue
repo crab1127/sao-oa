@@ -2,7 +2,7 @@
   <main ref="loadmore">
     <div class="card" v-for="item in list">
       <yd-flexbox class="card-header">
-        <yd-flexbox-item class="text-left">{{ item.salesNetworkName }}</yd-flexbox-item>
+        <yd-flexbox-item class="text-left">{{ item.salesNetworkName }} {{ item.termimalID }}</yd-flexbox-item>
         <router-link :to="{name: 'Detail', params: {id: item.termimalID}, query: {name: item.salesNetworkName}}" class="c-999">月统计</router-link>
       </yd-flexbox>
       <yd-flexbox class="card-body">

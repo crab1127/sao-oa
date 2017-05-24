@@ -2,7 +2,7 @@
   <main style="min-height: 100%; background:#fff;">
     <div class="card" style="margin-top:0; border-bottom: 1px solid #ddd;margin-bottom:.3rem">
       <yd-flexbox class="card-header">
-        <yd-flexbox-item class="text-left">{{ name }}{{ id }}</yd-flexbox-item>
+        <yd-flexbox-item class="text-left">{{ name }} {{ id }}</yd-flexbox-item>
       </yd-flexbox>
       <yd-flexbox class="card-body">
         <yd-flexbox-item class="flex-col">
