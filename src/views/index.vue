@@ -3,7 +3,7 @@
     <yd-flexbox class="area-1">
       <yd-flexbox-item class="flex-col">
         <em>{{ detail.deviceCount }}台</em>
-        <small>设备</small>
+        <small>终端</small>
       </yd-flexbox-item>
       <yd-flexbox-item class="flex-col">
         <em>{{ detail.sheetCount }}张</em>
@@ -98,11 +98,15 @@
             id: 5
           },
           {
-            name: '取消打印',
+            name: '未成功',
             id: 6
           },
           {
-            name: '设备故障',
+            name: '退款金额',
+            id: 8
+          },
+          {
+            name: '终端失联',
             id: 7
           }
         ],

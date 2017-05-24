@@ -5,9 +5,25 @@
         <yd-flexbox-item class="text-left">{{ name }}{{ id }}</yd-flexbox-item>
       </yd-flexbox>
       <yd-flexbox class="card-body">
-        <yd-flexbox-item class="flex-col" v-for="a in detail" :key="a.count">
-          <small class="c-999">{{ a.itemName }}</small>
-          <em class="f-24 green">{{ a.itemCount }}</em>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">4R照片</small>
+          <em class="f-24 green">{{ detail | getCount('801') }}</em>
+        </yd-flexbox-item>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">证件照</small>
+          <em class="f-24 green">{{ detail | getCount('805') }}</em>
+        </yd-flexbox-item>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">文档</small>
+          <em class="f-24 green">{{ detail | getCount('302') }}</em>
+        </yd-flexbox-item>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">身份证</small>
+          <em class="f-24 green">{{ detail | getCount('303') }}</em>
+        </yd-flexbox-item>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">A4照片</small>
+          <em class="f-24 green">{{ detail | getCount('301') }}</em>
         </yd-flexbox-item>
       </yd-flexbox>
     </div>
@@ -109,6 +125,17 @@
     },
     components: {
       charts
+    },
+    filters: {
+      getCount(list, id) {
+        let count = 0
+        list.forEach(item => {
+          if (item.itemID == id) {
+            count = item.itemCount
+          }
+        })
+        return count
+      }
     }
   }
 </script>

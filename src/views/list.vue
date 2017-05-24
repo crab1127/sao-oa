@@ -6,9 +6,25 @@
         <router-link :to="{name: 'Detail', params: {id: item.termimalID}, query: {name: item.salesNetworkName}}" class="c-999">月统计</router-link>
       </yd-flexbox>
       <yd-flexbox class="card-body">
-        <yd-flexbox-item class="flex-col" v-for="a in item.list" :key="a.num">
-          <small class="c-999">{{ a.itemName }}</small>
-          <em class="f-24 green">{{ a.itemCount }}</em>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">4R照片</small>
+          <em class="f-24 green">{{ item.list | getCount('801') }}</em>
+        </yd-flexbox-item>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">证件照</small>
+          <em class="f-24 green">{{ item.list | getCount('805') }}</em>
+        </yd-flexbox-item>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">文档</small>
+          <em class="f-24 green">{{ item.list | getCount('302') }}</em>
+        </yd-flexbox-item>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">身份证</small>
+          <em class="f-24 green">{{ item.list | getCount('303') }}</em>
+        </yd-flexbox-item>
+        <yd-flexbox-item class="flex-col">
+          <small class="c-999">A4照片</small>
+          <em class="f-24 green">{{ item.list | getCount('301') }}</em>
         </yd-flexbox-item>
       </yd-flexbox>
     </div>
@@ -65,6 +81,17 @@
             this.load()
           }
         }
+      }
+    },
+    filters: {
+      getCount(list, id) {
+        let count = 0
+        list.forEach(item => {
+          if (item.itemID == id) {
+            count = item.itemCount
+          }
+        })
+        return count
       }
     }
   }
